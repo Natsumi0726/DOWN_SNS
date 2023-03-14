@@ -38,6 +38,8 @@ Route::get('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
+Route::get('post/create-form', 'PostsController@createForm');
+Route::post('post/create', 'PostsController@create');
 
 
 
