@@ -29,6 +29,10 @@ Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/added', 'Auth\RegisterController@added');
 
 
+Auth::routes();
+
+Route::get('/top', 'PostController@index')->name('home');
+
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 
@@ -38,6 +42,7 @@ Route::get('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
-
+	
+Route::get('/logout', 'Auth\PoginController@logout');
 
 
