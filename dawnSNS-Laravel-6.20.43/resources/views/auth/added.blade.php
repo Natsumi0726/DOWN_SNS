@@ -2,8 +2,10 @@
 
 @section('content')
 
+<php>use Illuminate\Support\Facades\Auth;</php>
+
 <div id="clear">
-<p>{{ Auth::user()->name }}</p>
+<p>〇〇さん、</p>
 <p>ようこそ！DAWNSNSへ！</p>
 <p>ユーザー登録が完了しました。</p>
 <p>さっそく、ログインをしてみましょう。</p>
