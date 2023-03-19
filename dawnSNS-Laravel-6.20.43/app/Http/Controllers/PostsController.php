@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use \App\create;
 
 class PostsController extends Controller
 {
@@ -17,27 +18,21 @@ class PostsController extends Controller
 
     public function createForm()
     {
-        return view('posts.createForm');
+        $tweets = posts::latest()->get();
+        return view('auth.createForm',compact('posts'));
     }
     public function create(Request $request)
     {
-        $post = $request->input('newPost');
-        DB::table('posts')->insert([
-            'posts' => $post,
-            'user_id' => Auth::id,
-            //Undefined class constant 'id'
+        $validator = $request->validate([
+            'post' => ['required', 'string', 'max:280'],
         ]);
-
-        return redirect('/top');
+        post::create([
+            'user_id' => Auth::user()->id,
+            'post' => $request->post,
+        ]);
+        return back();
     }
-    public function delete($id)
-{
-    DB::table('posts')
-        ->where('id', $id)
-        ->delete();
 
-    return redirect('/index');
-}
 
 }
 

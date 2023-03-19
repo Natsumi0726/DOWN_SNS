@@ -16,31 +16,30 @@
 // });
 // Route::get('/home', 'HomeController@index')->name('home');
 
-//Auth::routes();
+Auth::routes();
 
 
 //ログアウト中のページ
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
-Route::get('/register', 'Auth\RegisterController@register');
-Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/register', 'RegisterController@register');
+Route::post('/register', 'RegisterController@register');
 
-Route::get('/added', 'Auth\RegisterController@added');
+Route::get('/added', 'RegisterController@added');
 
 
 //ログイン中のページ
-Route::get('/top','PostsController@index');
+Route::get('/top','Auth\PostsController@index');
 
-Route::get('/profile','UsersController@profile');
+Route::get('/profile','Auth\UsersController@profile');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','Auth\UsersController@index');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
-Route::get('post/create-form', 'PostsController@createForm');
-Route::post('post/create', 'PostsController@create');
+Route::get('/follow-list','Auth\PostsController@index');
+Route::get('/follower-list','Auth\PostsController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 
-
+Route::get('post/create-form', 'Auth\PostController@createForm');
+Route::post('post/create', 'Auth\PostController@create');
 
