@@ -22,7 +22,7 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
+       　 <h1><a><img src="images/logo.png"></a></h1>
             <div id="">
                 <div id="">
                     <p>〇〇さん<img src="images/arrow.png"></p>
@@ -34,7 +34,10 @@
                 </ul>
             </div>
         </div>
+        
     </header>
+
+
     <div id="row">
         <div id="container">
             @yield('content')
@@ -53,12 +56,12 @@
                 </div>
                 <p class="btn"><a href="">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="/webpack.mix.js"></script>
+    <script src="/webpack.mix.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use \App\create;
+use App\Post;
 
 class PostsController extends Controller
 {
@@ -20,15 +21,16 @@ class PostsController extends Controller
     {
         $tweets = posts::latest()->get();
         return view('auth.createForm',compact('posts'));
+        return view('posts.createForm');
     }
     public function create(Request $request)
     {
         $validator = $request->validate([
-            'post' => ['required', 'string', 'max:280'],
+            'newPost' => ['required', 'string', 'max:280'],
         ]);
-        post::create([
+        Post::create([
             'user_id' => Auth::user()->id,
-            'post' => $request->post,
+            'posts' => $request->newPost,
         ]);
         return back();
     }

@@ -8,17 +8,18 @@
 </head>
 
 <body>
-
-    <header>
-
-    </header>
     
     @extends('layouts.login')
 
 @section('content')
 
 <div class='container'>
-<p class="pull-right"><a class="btn btn-success" href="post/create-form">投稿する</a></p>
+{!! Form::open(['url' => 'post/create']) !!}
+        <div class="form-group">
+            {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容']) !!}
+        </div>
+        <button type="submit" class="btn btn-success pull-right">追加</button>
+        {!! Form::close() !!}
         <h2 class='page-header'>投稿一覧</h2>
         <table class='table table-hover'>
             <tr>
@@ -29,7 +30,7 @@
             @foreach ($posts as $post)
             <tr>
                 <td>{{ $post->id }}</td>
-                <td>{{ $post->post }}</td>
+                <td>{{ $post->posts }}</td>
                 <td>{{ $post->created_at }}</td>
             </tr>
             @endforeach

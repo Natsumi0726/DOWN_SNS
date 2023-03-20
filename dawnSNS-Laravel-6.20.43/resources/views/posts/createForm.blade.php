@@ -10,7 +10,7 @@
 <body>
  
     <head>
-        <h1 class='page-header'>Laravelを使った投稿機能の実装</h1>
+        <h1 class='page-header'>投稿する</h1>
     </head>
     <div class='container'>
         <h2 class='page-header'>新しく投稿をする</h2>

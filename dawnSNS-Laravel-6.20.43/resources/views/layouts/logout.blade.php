@@ -23,11 +23,20 @@
     <header>
         <h1><img src="images/main_logo.png"></h1>
         <p>Social Network Service</p>
+        <h2>DOWN SNS</h2>
     </header>
     <div id="container">
         @yield('content')
     </div >
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <div>
+        <p>DOWN SNS</p>
+        <ul>
+            <li>運営会社</li>
+            <li>利用規約</li>
+            <li>プライバシーポリシー</li>
+        </ul>
+        <small>All rights reserved. © NATSMI Inc. 2019-2023</small>
+    <script src="/webpack.mix.js"></script>
+    <script src="/webpack.mix.js"></script>
 </body>
 </html>

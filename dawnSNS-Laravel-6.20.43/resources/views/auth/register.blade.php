@@ -2,12 +2,17 @@
 
 @section('content')
 
+@foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+@endforeach
+
 {!! Form::open() !!}
 
 <h2>新規ユーザー登録</h2>
 
 {{ Form::label('ユーザー名') }}
 {{ Form::text('username',null,['class' => 'input']) }}
+
 
 {{ Form::label('メールアドレス') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
