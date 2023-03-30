@@ -28,6 +28,7 @@ class PostsController extends Controller
         $validator = $request->validate([
             'newPost' => ['required', 'string', 'max:280'],
         ]);
+        dd(Auth::user());
         Post::create([
             'user_id' => Auth::user()->id,
             'posts' => $request->newPost,

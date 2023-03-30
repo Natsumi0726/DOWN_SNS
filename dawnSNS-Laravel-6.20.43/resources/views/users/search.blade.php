@@ -14,6 +14,7 @@
 @foreach($users as $user)
 <img src="/images/{{$user->images}}">
 {{ $user->username }}
+<button type="submit" class="btn">フォローする</button>
 @endforeach
 
 

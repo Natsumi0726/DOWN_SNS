@@ -41,7 +41,7 @@ Route::get('/follower-list','PostsController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('post/create-form', 'PostsController@createForm');
-Route::post('post/createForm', 'PostsController@create');
+Route::post('posts/create', 'PostsController@create');
 
 
 
