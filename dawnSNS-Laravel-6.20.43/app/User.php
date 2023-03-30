@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -26,15 +26,5 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function follows()
-    {
-        $follows = auth()->user()->follows()->attach( User::find(1) );
-        return $this->belongsToMany(User::class, 'follower_user', 'follower_id', 'user_id');
-    }
 
-    public function followers()
-    {
-        $followers = auth()->user()->followers()->attach( User::find(2) );
-        return $this->belongsToMany(User::class, 'follower_user', 'user_id', 'follower_id');
-    }
 }

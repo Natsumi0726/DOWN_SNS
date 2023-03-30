@@ -36,4 +36,11 @@ class UsersController extends Controller
             'search' => $search,
         ]);
     }
+
+    public function profile()
+    {
+
+ dd('hellow');
+
+    }
 }

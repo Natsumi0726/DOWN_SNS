@@ -36,19 +36,21 @@ Route::get('/profile','UsersController@profile');
 
 Route::get('/search','UsersController@search');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('post/create-form', 'PostsController@createForm');
+
+
+//投稿とか
+
 Route::post('posts/create', 'PostsController@create');
-
-
-
-
 Route::get('post/{id}/update-form', 'PostsController@updateForm');
+Route::post('posts/update', 'PostsController@update');
+Route::get('posts/{id}/delete', 'PostsController@delete');
 
-Route::post('post/update', 'PostsController@update');
 
-Route::get('post/{id}/delete', 'PostsController@delete');
+//フォローとか
 
+Route::get('/followList', 'FollowsController@followList');
+Route::get('/followerList', 'FollowsController@followerList');
+Route::get('/follow', 'FollowsController@follow');
+Route::get('/unfollow', 'FollowsController@unfollow');

@@ -14,7 +14,12 @@
 @foreach($users as $user)
 <img src="/images/{{$user->images}}">
 {{ $user->username }}
-<button type="submit" class="btn">フォローする</button>
+<form action="/follow">
+<button type="submit" class="btn" >フォローする</button>
+</form>
+<form action="/unfollow">
+<button type="submit" class="btn" >フォロー外す</button>
+</form>
 @endforeach
 
 
