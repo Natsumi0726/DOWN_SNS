@@ -14,7 +14,13 @@ class PostsController extends Controller
 
     public function index(){
         $posts = DB::table('posts')->get();
-        return view('posts.index',['posts'=>$posts]);
+        $followCount = DB::table('follows')
+            ->where('follower',Auth::id())
+            ->count();
+        $followerCount = DB::table('follows')
+            ->where('follow',Auth::id())
+            ->count();
+        return view('posts.index',['posts'=>$posts, 'followCount'=>$followCount,'followerCount'=>$followerCount]);
     }
 
 

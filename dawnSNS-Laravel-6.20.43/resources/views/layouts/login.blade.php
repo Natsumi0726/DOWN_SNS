@@ -22,10 +22,11 @@
 <body>
     <header>
         <div id = "head">
-       　 <h1><a><img src="images/logo.png"></a></h1>
+         <h1><a><img src="images/logo.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
+                <p>{{ Auth::user()->username }}さん</p>
+                <img src="images/{{ Auth::user()->images }}">
                 <div>
                 <ul>
                     <li><a href="/top">HOME</a></li>
@@ -34,7 +35,6 @@
                 </ul>
             </div>
         </div>
-        
     </header>
 
 
@@ -44,15 +44,15 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+            <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p>{{ $followCount }}名</p>
                 </div>
                 <p class="btn"><a href="/followList">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p>{{ $followerCount }}名</p>
                 </div>
                 <p class="btn"><a href="followerList">フォロワーリスト</a></p>
             </div>

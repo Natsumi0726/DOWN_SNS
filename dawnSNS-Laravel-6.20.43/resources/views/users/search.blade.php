@@ -14,9 +14,14 @@
 @foreach($users as $user)
 <img src="/images/{{$user->images}}">
 {{ $user->username }}
-<form action="/follow">
-<button type="submit" class="btn" >フォローする</button>
-</form>
+
+{!! Form::open(['url' => 'Follows/follow']) !!}
+<div class="form-group">
+            {!! Form::input('hidden', 'follow', null, []) !!}
+        </div>
+        <button type="submit" class="btn btn-success pull-right">フォローする</button>
+        {!! Form::close() !!}
+
 <form action="/unfollow">
 <button type="submit" class="btn" >フォロー外す</button>
 </form>

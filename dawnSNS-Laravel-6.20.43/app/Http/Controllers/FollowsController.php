@@ -8,13 +8,14 @@ use Auth;
 
 class FollowsController extends Controller
 {
-    public function follow(){
-    // $follow = DB::create([
-    //     'follow' => \Auth::user()->id,
-    //     'follower' => $user->id,
-    // ]);
-    // $followCount = count(DB::where('follow', $user->id)->get());
-    // return response()->json(['followCount' => $followCount]);
+    public function follow(Request $request){
+     $follow = $request->input('follow');
+     DB::table('follows')->insert([
+         'follow' => \Auth::user()->id,
+         'follower' => $follow->id,
+     ]);
+    //  $followCount = count(DB::where('follow', $user->id)->get());
+    //  return response()->json(['followCount' => $followCount]);
 
     return back ();
 }
@@ -31,7 +32,13 @@ public function unfollow(){
             ->where('follow',Auth::id())
             ->select('follows.follow', 'users.username', 'users.images')
             ->get();
-        return view('follows.followerList',compact('followers'));
+            $followCount = DB::table('follows')
+            ->where('follower',Auth::id())
+            ->count();
+            $followerCount = DB::table('follows')
+            ->where('follow',Auth::id())
+            ->count();
+        return view('follows.followerList',compact('followers','followCount','followerCount'));
     }
 
     public function followList(){
@@ -40,6 +47,13 @@ public function unfollow(){
             ->where('follower',Auth::id())
             ->select('follows.follower', 'users.username', 'users.images')
             ->get();
-        return view('follows.followList',compact('follows'));
+            $followCount = DB::table('follows')
+            ->where('follower',Auth::id())
+            ->count();
+            $followerCount = DB::table('follows')
+            ->where('follow',Auth::id())
+            ->count();
+        return view('follows.followList',compact('follows', 'followCount','followerCount'));
     }
+
 }
