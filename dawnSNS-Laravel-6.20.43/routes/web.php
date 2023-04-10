@@ -52,5 +52,6 @@ Route::get('posts/{id}/delete', 'PostsController@delete');
 
 Route::get('/followList', 'FollowsController@followList');
 Route::get('/followerList', 'FollowsController@followerList');
-Route::get('/follow', 'FollowsController@follow');
-Route::get('/unfollow', 'FollowsController@unfollow');
+Route::post('/Follows/follow', 'FollowsController@follow');
+Route::post('/unfollow', 'FollowsController@unfollow');
+

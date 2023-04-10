@@ -15,16 +15,29 @@
 <img src="/images/{{$user->images}}">
 {{ $user->username }}
 
-{!! Form::open(['url' => 'Follows/follow']) !!}
+
+
+
+@if(!$followers->contains($user->id))
+    {!! Form::open(['url' => 'Follows/follow']) !!}
 <div class="form-group">
-            {!! Form::input('hidden', 'follow', null, []) !!}
+            {!! Form::hidden('follow', $user->id) !!}
         </div>
         <button type="submit" class="btn btn-success pull-right">フォローする</button>
         {!! Form::close() !!}
-
-<form action="/unfollow">
+@else
+    {!! Form::open(['url' => '/unfollow']) !!}
+<div class="form-group">
+            {!! Form::hidden('unfollow', $user->id) !!}
+        </div>
 <button type="submit" class="btn" >フォロー外す</button>
-</form>
+{!! Form::close() !!}
+@endif
+
+
+
+
+
 @endforeach
 
 

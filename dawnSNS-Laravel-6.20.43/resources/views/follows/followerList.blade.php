@@ -1,7 +1,7 @@
 @extends('layouts.login')
 @section('content')
 
-<p>フォロワー!!!!!!</p>
+<p>フォロワー</p>
 @foreach ($followers as $followers)
 <a href="/profile">
 <img src="/images/{{$followers->images}}">

@@ -11,8 +11,8 @@ class FollowsController extends Controller
     public function follow(Request $request){
      $follow = $request->input('follow');
      DB::table('follows')->insert([
-         'follow' => \Auth::user()->id,
-         'follower' => $follow->id,
+         'follow' => $follow,
+         'follower' => \Auth::user()->id,
      ]);
     //  $followCount = count(DB::where('follow', $user->id)->get());
     //  return response()->json(['followCount' => $followCount]);
@@ -20,11 +20,17 @@ class FollowsController extends Controller
     return back ();
 }
 
-public function unfollow(){
 
-
+public function unfollow(Request $request){
+    $unfollow = DB::table('follows')
+            ->where('follower',Auth::id())
+            ->where('follow',$request->input('unfollow'))
+            ->delete();
     return back ();
 }
+
+
+
 
     public function followerList(){
         $followers = DB::table('follows')
