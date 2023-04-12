@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class UsersController extends Controller
@@ -48,10 +49,40 @@ class UsersController extends Controller
         ]);
     }
 
-    public function profile()
+    public function profile(Request $request)
     {
+        $user = DB::table('users')
+            ->where('id',Auth::id())
+            ->select('images','username','id','mail','password','bio',)
+            ->first();
+        $followCount = DB::table('follows')
+            ->where('follower',Auth::id())
+            ->count();
+            $followerCount = DB::table('follows')
+            ->where('follow',Auth::id())
+            ->count();
+        return view('users.profile',[
+            'followCount'=>$followCount,
+            'followerCount'=>$followerCount,
+            'user' => $user,
+        ]);
+    }
 
- dd();
-
+    public function update(Request $request)
+    {
+        $username = $request->input('userName');
+        $mailAdress = $request->input('mailAdress'); 
+        $newPassword = $request->input('newPassword');
+        $bio = $request->input('bio');
+        DB::table('users')
+            ->where('id',Auth::id())
+            ->update(
+                ['username' => $username,
+                'mail' => $mailAdress,
+                'password' => Hash::make($newPassword),
+                'bio' => $bio,
+                ]
+            );
+        return redirect('/top');
     }
 }
