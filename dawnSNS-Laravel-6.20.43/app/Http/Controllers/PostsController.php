@@ -42,20 +42,6 @@ class PostsController extends Controller
         return back();
     }
 
-
-
-
-
-
-
-    public function updateForm($id)
-    {
-        $post = DB::table('posts')
-            ->where('id', $id)
-            ->first();
-        return view('posts.updateForm', ['post' => $post]);
-    }
-
     public function update(Request $request)
     {
         $id = $request->input('id');
@@ -66,7 +52,7 @@ class PostsController extends Controller
                 ['posts' => $up_posts]
             );
 
-        return redirect('/index');
+        return redirect('/top');
     }
 
     public function delete($id)
