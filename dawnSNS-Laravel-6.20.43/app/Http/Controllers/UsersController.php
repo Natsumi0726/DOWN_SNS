@@ -33,6 +33,7 @@ class UsersController extends Controller
             ->get();
         }else{
             $users = DB::table('users')
+            ->where('id','<>',Auth::id())
             ->select('images','username','id')
             ->get();
         }
@@ -70,24 +71,45 @@ class UsersController extends Controller
 
     public function update(Request $request)
     {
-        if(!$request->newPassword){
+        if(!$request->newPassword && $request->iconImage){//パスワードなしアイコンあり
         $username = $request->input('userName');
-        $mailAdress = $request->input('mailAdress'); 
+        $mailAdress = $request->input('mailAdress');
         $newPassword = $request->input('newPassword');
         $bio = $request->input('bio');
+        $iconImage = $request->file('iconImage')->getClientOriginalName();
+        $request->file('iconImage')->storeAs('images', $iconImage, 'public');
         DB::table('users')
             ->where('id',Auth::id())
             ->update(
                 ['username' => $username,
                 'mail' => $mailAdress,
                 'bio' => $bio,
+                'images' => $iconImage,
                 ]
             );
-        }else{
+        }else if ($request->newPassword && $request->iconImage){//パスワードありアイコンあり
             $username = $request->input('userName');
             $mailAdress = $request->input('mailAdress');
             $newPassword = $request->input('newPassword');
             $bio = $request->input('bio');
+            $iconImage = $request->file('iconImage')->getClientOriginalName();
+            $request->file('iconImage')->storeAs('images', $iconImage, 'public');
+            DB::table('users')
+                ->where('id',Auth::id())
+                ->update(
+                    ['username' => $username,
+                    'mail' => $mailAdress,
+                    'password' => Hash::make($newPassword),
+                    'bio' => $bio,
+                    'images' => $iconImage,
+                    ]
+                );
+        }else if($request->newPassword && !$request->iconImage){//パスワードありアイコンなし
+            $username = $request->input('userName');
+            $mailAdress = $request->input('mailAdress');
+            $newPassword = $request->input('newPassword');
+            $bio = $request->input('bio');
+            $iconImage = $request->file('iconImage')->getClientOriginalName();
             DB::table('users')
                 ->where('id',Auth::id())
                 ->update(
@@ -97,8 +119,27 @@ class UsersController extends Controller
                     'bio' => $bio,
                     ]
                 );
-        }
+            }else{//パスワードなしアイコンなし
+                $username = $request->input('userName');
+                $mailAdress = $request->input('mailAdress');
+                $newPassword = $request->input('newPassword');
+                $bio = $request->input('bio');
+                $iconImage = $request->file('iconImage')->getClientOriginalName();
+                DB::table('users')
+                    ->where('id',Auth::id())
+                    ->update(
+                        ['username' => $username,
+                        'mail' => $mailAdress,
+                        'bio' => $bio,
+                        ]
+                    );
+            }
 
         return redirect('/top');
     }
+
+    public function store(Request $request)
+    {
+}
+
 }

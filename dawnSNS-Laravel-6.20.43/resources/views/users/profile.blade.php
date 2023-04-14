@@ -2,8 +2,8 @@
 
 @section('content')
 
-<img src="/images/{{$user->images}}">
-<form action="profile-update" method="post">
+<img src="/storage/images/{{$user->images}}">
+<form action="profile-update" method="post" enctype="multipart/form-data">
 @csrf
         <div>
             <label for="name">UserName</label>
@@ -27,7 +27,7 @@
         </div>
         <div>
             <label for="Icon-Image">Icon Image</label>
-            <input type="file" id="iconImage" name="iconImage" accept=".png,.jpg,.jpeg,image/png,image/jpg" value="ファイルを選択">
+            <input type="file" id="iconImage" name="iconImage">
         </div>
         <input type="submit" value="更新">
     </form>

@@ -20,16 +20,11 @@
         </div>
         <button type="submit" class="btn btn-success pull-right">追加</button>
         {!! Form::close() !!}
-        <h2 class='page-header'>投稿一覧</h2>
         <table class='table table-hover'>
-            <tr>
-                <th>投稿No</th>
-                <th>投稿内容</th>
-                <th>投稿日時</th>
-            </tr>
             @foreach ($posts as $post)
             <tr>
-                <td>{{ $post->id }}</td>
+                <td><img src="/storage/images/{{ $post->images }}"></td>
+                <td><p>{{ $post->username }}さん</p></td>
                 <td>{{ $post->posts }}</td>
                 <td>{{ $post->created_at }}</td>
                 <td><a class="btn btn-primary" href="/posts/{{ $post->id }}/updateForm">更新</a></td>

@@ -26,7 +26,7 @@
             <div id="">
                 <div id="">
                 <p>{{ Auth::user()->username }}さん</p>
-                <img src="images/{{ Auth::user()->images }}">
+                <img src="/storage/images/{{ Auth::user()->images }}">
                 <div>
                 <ul>
                     <li><a href="/top">HOME</a></li>
