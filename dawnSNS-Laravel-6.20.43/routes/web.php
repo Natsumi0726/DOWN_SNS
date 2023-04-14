@@ -34,8 +34,6 @@ Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 Route::post('/profile-update','UsersController@update');
-// Route::get('/profile', 'UsersController@index');
-// Route::post('/profile', 'UsersController@store');
 
 Route::get('/search','UsersController@search');
 
@@ -57,4 +55,6 @@ Route::get('/followList', 'FollowsController@followList');
 Route::get('/followerList', 'FollowsController@followerList');
 Route::post('/Follows/follow', 'FollowsController@follow');
 Route::post('/unfollow', 'FollowsController@unfollow');
+
+Route::get('users/{otherUsers}/otherUsers', 'UsersController@otherUsers');
 

@@ -138,8 +138,29 @@ class UsersController extends Controller
         return redirect('/top');
     }
 
-    public function store(Request $request)
+    public function otherUsers($otherUsers)
     {
+        $posts = DB::table('posts')
+        ->join('users', 'posts.user_id','=', 'users.id')
+        ->select('posts.user_id','posts.posts','posts.id','posts.created_at','users.username','users.images')
+        ->where('posts.user_id',$otherUsers)
+        ->get();
+
+        $users = DB::table('users')
+        ->where('id',$otherUsers)
+        ->select('username','images','bio','id')
+        ->first();
+        $followers = DB::table('follows')
+        ->where('follower',Auth::id())
+        ->pluck('follow');
+
+        $followCount = DB::table('follows')
+            ->where('follower',Auth::id())
+            ->count();
+        $followerCount = DB::table('follows')
+            ->where('follow',Auth::id())
+            ->count();
+        return view('users.otherUsers',['posts'=>$posts, 'followCount'=>$followCount,'followerCount'=>$followerCount,'users'=>$users,'followers'=>$followers]);
 }
 
 }

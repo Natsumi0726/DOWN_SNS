@@ -12,24 +12,26 @@
 </form>
 
 @foreach($users as $user)
-<img src="/images/{{$user->images}}">
+<a href="/users/{{ $user->id }}/otherUsers">
+    <img src="/images/{{$user->images}}">
+</a>
 {{ $user->username }}
 
 
 
 
 @if(!$followers->contains($user->id))
-    {!! Form::open(['url' => 'Follows/follow']) !!}
+    {!! Form::open(['url' => '/Follows/follow']) !!}
 <div class="form-group">
             {!! Form::hidden('follow', $user->id) !!}
-        </div>
+</div>
         <button type="submit" class="btn btn-success pull-right">フォローする</button>
         {!! Form::close() !!}
 @else
     {!! Form::open(['url' => '/unfollow']) !!}
 <div class="form-group">
             {!! Form::hidden('unfollow', $user->id) !!}
-        </div>
+ </div>
 <button type="submit" class="btn" >フォロー外す</button>
 {!! Form::close() !!}
 @endif

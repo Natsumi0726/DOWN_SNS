@@ -3,7 +3,7 @@
 
 <p>フォロワー</p>
 @foreach ($followers as $followers)
-<a href="/profile">
+<a href="/users/{{ $followers->id }}/otherUsers">
 <img src="/images/{{$followers->images}}">
 </a>
 {{ $followers->username }}

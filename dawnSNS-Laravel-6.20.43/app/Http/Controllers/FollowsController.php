@@ -36,7 +36,7 @@ public function unfollow(Request $request){
         $followers = DB::table('follows')
             ->join('users', 'follows.follower','users.id')
             ->where('follow',Auth::id())
-            ->select('follows.follow', 'users.username', 'users.images')
+            ->select('follows.follow', 'users.username', 'users.images','users.id')
             ->get();
             $followCount = DB::table('follows')
             ->where('follower',Auth::id())
@@ -51,7 +51,7 @@ public function unfollow(Request $request){
         $follows = DB::table('follows')
             ->join('users', 'follows.follow','users.id')
             ->where('follower',Auth::id())
-            ->select('follows.follower', 'users.username', 'users.images')
+            ->select('follows.follower', 'users.username', 'users.images','users.id')
             ->get();
             $followCount = DB::table('follows')
             ->where('follower',Auth::id())
