@@ -1,21 +1,12 @@
 @extends('layouts.app')
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset='utf-8"'>
-    <link rel='stylesheet' href='/css/app.css'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
 @section('content')
     <div class='container'>
         <h2 class='page-header'>投稿内容を変更する</h2>
-        {!! Form::open(['url' => '/post/update']) !!}
+        {!! Form::open(['url' => '/posts/update']) !!}
         <div class="form-group">
-            {!! Form::hidden('id', $post->id) !!}
-            {!! Form::input('text', 'upPost', $post->post, ['required', 'class' => 'form-control']) !!}
+            {!! Form::hidden('id', $posts->id) !!}
+            {!! Form::input('text', 'upPosts', $posts->posts, ['required', 'class' => 'posts-control']) !!}
         </div>
         <button type="submit" class="btn btn-primary pull-right">更新</button>
         {!! Form::close() !!}

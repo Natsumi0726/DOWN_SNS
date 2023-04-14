@@ -44,7 +44,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 //投稿とか
 
 Route::post('posts/create', 'PostsController@create');
-Route::get('post/{id}/update-form', 'PostsController@updateForm');
+Route::get('post/{id}/updateForm', 'PostsController@updateForm');
 Route::post('posts/update', 'PostsController@update');
 Route::get('posts/{id}/delete', 'PostsController@delete');
 

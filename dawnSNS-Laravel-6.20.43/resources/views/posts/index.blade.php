@@ -32,7 +32,7 @@
                 <td>{{ $post->id }}</td>
                 <td>{{ $post->posts }}</td>
                 <td>{{ $post->created_at }}</td>
-                <td><a class="btn btn-primary" href="/posts/{{ $post->id }}/update-form">更新</a></td>
+                <td><a class="btn btn-primary" href="/posts/{{ $post->id }}/updateForm">更新</a></td>
                 <td><a class="btn btn-danger" href="/posts/{{ $post->id }}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></td>
             </tr>
             @endforeach

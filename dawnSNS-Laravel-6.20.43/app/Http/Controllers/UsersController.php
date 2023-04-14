@@ -70,6 +70,7 @@ class UsersController extends Controller
 
     public function update(Request $request)
     {
+        if(!$request->newPassword){
         $username = $request->input('userName');
         $mailAdress = $request->input('mailAdress'); 
         $newPassword = $request->input('newPassword');
@@ -79,10 +80,25 @@ class UsersController extends Controller
             ->update(
                 ['username' => $username,
                 'mail' => $mailAdress,
-                'password' => Hash::make($newPassword),
                 'bio' => $bio,
                 ]
             );
+        }else{
+            $username = $request->input('userName');
+            $mailAdress = $request->input('mailAdress');
+            $newPassword = $request->input('newPassword');
+            $bio = $request->input('bio');
+            DB::table('users')
+                ->where('id',Auth::id())
+                ->update(
+                    ['username' => $username,
+                    'mail' => $mailAdress,
+                    'password' => Hash::make($newPassword),
+                    'bio' => $bio,
+                    ]
+                );
+        }
+
         return redirect('/top');
     }
 }
