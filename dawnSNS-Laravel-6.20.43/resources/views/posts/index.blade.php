@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset='utf-8"'>
-    <link rel='stylesheet' href="{{ asset('/css/app.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-
-    @extends('layouts.login')
+@extends('layouts.login')
 
 @section('content')
 
@@ -18,7 +7,7 @@
         <div class="form-group">
             {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容']) !!}
         </div>
-        <button type="submit" class="btn btn-success pull-right">追加</button>
+        <button type="submit" class="btn btn-success pull-right"><img src="/images/post.png"></button>
         {!! Form::close() !!}
         <table class='table table-hover'>
             @foreach ($posts as $post)
@@ -33,9 +22,9 @@
         {!! Form::hidden('id', $post->id) !!}
             {!! Form::input('text', 'upPosts', $post->posts, ['required', 'class' => 'form-control',]) !!}
         </div>
-        <button type="submit" class="btn btn-success pull-right">更新</button>
+        <button type="submit" class="btn btn-success pull-right"><img src="/images/edit.png"></button>
         {!! Form::close() !!}
-                <td><a class="btn btn-danger" href="/posts/{{ $post->id }}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></td>
+                <td><a class="btn btn-danger" href="/posts/{{ $post->id }}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="/images/trash.png"></a></td>
             </tr>
             @endforeach
         </table>
