@@ -53,7 +53,7 @@ class PostsController extends Controller
         $post = DB::table('posts')
             ->where('id', $id)
             ->first();
-        return view('posts.updateForm', compact('posts'));
+        return view('posts.updateForm', ['post' => $post]);
     }
 
     public function update(Request $request)
