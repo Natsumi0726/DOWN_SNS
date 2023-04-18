@@ -2,19 +2,28 @@
 
 @section('content')
 
+<div id="container">
+  <p class="welcome">DAWNSNSへようこそ</p>
+  <div class="form">
 {!! Form::open() !!}
-
-<p>DAWNSNSへようこそ</p>
-
-{{ Form::label('e-mail') }}
+<div class="adress">
+{{ Form::label('MailAdress') }}
+<br>
 {{ Form::text('mail',null,['class' => 'input']) }}
-{{ Form::label('password') }}
+</div>
+<br>
+<div class="password">
+{{ Form::label('Password') }}
+<br>
 {{ Form::password('password',['class' => 'input']) }}
-
-{{ Form::submit('ログイン') }}
-
-<p><a href="/register">新規ユーザーの方はこちら</a></p>
-
+</div>
+<br>
+{{ Form::submit('LOGIN',['class' => 'button']) }}
 {!! Form::close() !!}
+
+<p class="new"><a href="/register">新規ユーザーの方はこちら</a></p>
+
+    </div>
+</div>
 
 @endsection

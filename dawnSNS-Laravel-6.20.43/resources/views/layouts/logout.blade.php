@@ -21,21 +21,23 @@
 </head>
 <body>
     <header>
-        <h1><img src="images/main_logo.png"></h1>
-        <p>Social Network Service</p>
-        <h2>DOWN SNS</h2>
+        <div class="main-title">
+         <h1><img src="images/main_logo.png"></h1>
+         <p>Social Network Service</p>
+        </div>
     </header>
     <div id="container">
         @yield('content')
     </div >
-    <div>
-        <p>DOWN SNS</p>
+    <div class="container">
+        <!-- <p>DOWN SNS</p>
         <ul>
             <li>運営会社</li>
             <li>利用規約</li>
             <li>プライバシーポリシー</li>
         </ul>
-        <small>All rights reserved. © NATSMI Inc. 2019-2023</small>
+        <small>All rights reserved. © NATSMI Inc. 2019-2023</small> -->
+    </div>
     <script src="/webpack.mix.js"></script>
     <script src="/webpack.mix.js"></script>
 </body>

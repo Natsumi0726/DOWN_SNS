@@ -1,9 +1,79 @@
 @chasert "utf-8";
 
-html{
+html {
     height: 100%;
 }
-body{
+
+header {
+    padding-top: 210px;
+}
+
+body {
     height: 100%;
-    background: #3C4767;
+    background: linear-gradient(180deg, #3C4767 70%, #D5553D);
+}
+
+p {
+    color: white;
+}
+
+.welcome {
+    padding-top: 10%;
+    text-align: center;
+    margin-bottom: 20%;
+}
+
+.new {
+    margin-top: 20%;
+    font-size: 15px;
+    margin-left: 20%;
+}
+
+form {
+    color: white;
+    margin-left: 21%;
+}
+
+a {
+    color: white;
+}
+
+.main-title {
+    font-size: 28px;
+    text-align: center;
+    margin: 0 auto;
+    width: 350px;
+    height: 200px;
+}
+
+#container {
+    margin: 0 auto;
+    width: 300px;
+    height: 370px;
+    background: rgba(0, 0, 0, 0.107);
+    border-radius: 10px;
+    padding: 0% 0% 0% 0%;
+}
+
+#form {
+    margin-left: 21%;
+    width: 400px;
+    height: 350px;
+    background: #2c344b;
+    padding: 0% 0% 0% 0%;
+}
+
+.input {
+    border-radius: 3px;
+    padding: 2% 4% 2% 4%;
+    border: none;
+    margin-top: 3%;
+}
+.button{
+    color: white;
+    background: #636f8f;
+    padding: 2% 10% 2% 10%;
+    margin-left: 39%;
+    border-radius: 3px;
+    border: none;
 }
