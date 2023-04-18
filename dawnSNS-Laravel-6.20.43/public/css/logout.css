@@ -5,7 +5,7 @@ html {
 }
 
 header {
-    padding-top: 210px;
+    padding-top: 150px;
 }
 
 body {
@@ -18,13 +18,13 @@ p {
 }
 
 .welcome {
-    padding-top: 10%;
+    padding-top: 5%;
     text-align: center;
     margin-bottom: 20%;
 }
 
 .new {
-    margin-top: 20%;
+    margin-top:25%;
     font-size: 15px;
     margin-left: 20%;
 }
@@ -49,18 +49,17 @@ a {
 #container {
     margin: 0 auto;
     width: 300px;
-    height: 370px;
+    height: 45%;
     background: rgba(0, 0, 0, 0.107);
     border-radius: 10px;
-    padding: 0% 0% 0% 0%;
+    padding-top: 5%;
 }
 
 #form {
-    margin-left: 21%;
+    margin: 0 auto;
     width: 400px;
     height: 350px;
     background: #2c344b;
-    padding: 0% 0% 0% 0%;
 }
 
 .input {
@@ -74,6 +73,46 @@ a {
     background: #636f8f;
     padding: 2% 10% 2% 10%;
     margin-left: 39%;
+    border-radius: 3px;
+    border: none;
+}
+
+/* 新しく作成ページ */
+
+h2{
+    color: white;
+    text-align: center;
+    padding-bottom: 5%;
+}
+.back{
+    text-align: center;
+    margin-top: 20%;
+}
+.UserName{
+    margin-bottom: 6%;
+}
+.MailAdress{
+    margin-bottom: 6%;
+}
+.password{
+    margin-bottom: 6%;
+}
+.Password-confirm{
+    margin-bottom: 6%;
+}
+
+
+
+#clear{
+    text-align: center;
+}
+.btn{
+    color: white;
+    background: #636f8f;
+    padding: 2% 0% 2% 0%;
+    width: 45%;
+    margin: 0 auto;
+    margin-top: 10%;
     border-radius: 3px;
     border: none;
 }

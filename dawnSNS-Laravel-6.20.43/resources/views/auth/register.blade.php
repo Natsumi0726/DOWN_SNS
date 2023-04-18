@@ -6,26 +6,39 @@
     <li>{{ $error }}</li>
 @endforeach
 
-{!! Form::open() !!}
-
+<div class="container">
 <h2>新規ユーザー登録</h2>
 
-{{ Form::label('ユーザー名') }}
+<div class="form">
+{!! Form::open() !!}
+<div class="UserName">
+{{ Form::label('UserName') }}
+<br>
 {{ Form::text('username',null,['class' => 'input']) }}
-
-
-{{ Form::label('メールアドレス') }}
+<br>
+</div>
+<div class="MailAdress">
+{{ Form::label('MailAdress') }}
+<br>
 {{ Form::text('mail',null,['class' => 'input']) }}
-
-{{ Form::label('パスワード') }}
+<br>
+</div>
+<div class="password">
+{{ Form::label('Password') }}
+<br>
 {{ Form::text('password',null,['class' => 'input']) }}
-
-{{ Form::label('パスワード確認') }}
+<br>
+</div>
+<div class="Password-confirm">
+{{ Form::label('Password confirm') }}
+<br>
 {{ Form::text('password-confirm',null,['class' => 'input']) }}
-
-{{ Form::submit('登録') }}
-
-<p><a href="/login">ログイン画面へ戻る</a></p>
+<br>
+</div>
+{{ Form::submit('REGISTER',['class' => 'button']) }}
+</div>
+<p class="back"><a href="/login">ログイン画面へ戻る</a></p>
+</div>
 
 {!! Form::close() !!}
 

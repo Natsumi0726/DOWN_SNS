@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id="container">
+<div class="container">
   <p class="welcome">DAWNSNSへようこそ</p>
   <div class="form">
 {!! Form::open() !!}
