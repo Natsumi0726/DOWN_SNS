@@ -23,16 +23,17 @@
     <header>
         <div id = "head">
          <h1><a href="/top"><img src="/images/main_logo.png"></a></h1>
-            <div id="">
-                <div id="">
-                <p>{{ Auth::user()->username }}さん</p>
-                <img src="/storage/images/{{ Auth::user()->images }}">
-                <div>
-                <ul>
-                    <li><a href="/top">HOME</a></li>
-                    <li><a href="/profile">プロフィール編集</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
+            <div id="header-menu">
+                <div class="menu-wrap">
+                    <label for="toggle" onclick=""  for="menuToggle">{{ Auth::user()->username }} さん</label>
+                    <input type="checkbox" id="toggle" autocomplete="off">
+                    <ul id="menu">
+                        <li class="wrap-list"><a href="/top">HOME</a></li>
+                        <li class="wrap-list"><a href="/profile">プロフィール編集</a></li>
+                        <li class="wrap-list"><a href="/logout">ログアウト</a></li>
+                    </ul>
+                </div>
+                <img class="my-image" src="/storage/images/{{ Auth::user()->images }}">
             </div>
         </div>
     </header>
@@ -44,19 +45,19 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-            <p>{{ Auth::user()->username }}さんの</p>
-                <div>
+                <p id="name">{{ Auth::user()->username }}さんの</p>
+                <div id="follow">
                 <p>フォロー数</p>
-                <p>{{ $followCount }}名</p>
+                <p id="count">{{ $followCount }}名</p>
                 </div>
-                <p class="btn"><a href="/followList">フォローリスト</a></p>
-                <div>
+                <p class="follow-btn"><a href="/followList">フォローリスト</a></p>
+                <div id="follow">
                 <p>フォロワー数</p>
-                <p>{{ $followerCount }}名</p>
+                <p id="count">{{ $followerCount }}名</p>
                 </div>
-                <p class="btn"><a href="followerList">フォロワーリスト</a></p>
+                <p class="follow-btn"><a href="followerList">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <p class="user-btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
