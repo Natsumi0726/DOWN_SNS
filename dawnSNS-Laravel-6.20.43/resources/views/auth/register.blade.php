@@ -26,13 +26,13 @@
 <div class="password">
 {{ Form::label('Password') }}
 <br>
-{{ Form::text('password',null,['class' => 'input']) }}
+{{ Form::password('password',null,['class' => 'input']) }}
 <br>
 </div>
 <div class="Password-confirm">
 {{ Form::label('Password confirm') }}
 <br>
-{{ Form::text('password-confirm',null,['class' => 'input']) }}
+{{ Form::password('password-confirm',null,['class' => 'input']) }}
 <br>
 </div>
 {{ Form::submit('REGISTER',['class' => 'button']) }}

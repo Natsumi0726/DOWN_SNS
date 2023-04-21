@@ -12,48 +12,22 @@ header {
 }
 
 #head {
-    display: block;
+    display: flex;
     width: 100%;
     height: 100px;
 }
 
 h1 {
-    float: left;
+    margin-right:auto;
 }
 
-#header-menu {
-    float: right;
-    width: 170px;
+.header-menu {
+    width: 26%;
 }
 .menu-wrap{
-    width: 150px;
-    margin-top: 30%;
-}
-
-/* プルダウンメニュー */
-#toggle {
-    display: none;
-    cursor: pointer;
-}
-label{
-    color: white;
-}
-#menu {
-    display: none;
-}
-#toggle:checked+#menu {
-    display: block;
-}
-
-.my-image {
-    display: block;
-    float: right;
-    margin-top: -20%;
-    margin-right: 5%;
-    border-radius: 50%;
-    width: 40px;
-    /* ※縦横を同値に */
-    height: 40px;
+    width: 100%;
+    margin-top: 20%;
+    margin-left: 30%;
 }
 
 
@@ -61,32 +35,24 @@ label{
 
 
 
-
-
-
-
-
-
-/* main content */
+/* 右側のコンテンツ */
 #row {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
 
 }
-
-#container {
-    flex: 0 0 80%;
+.container{
+    flex: 1 0 69%;
 }
 
 #side-bar {
-    flex: 0 0 19%;
+    flex: 0 0 30%;
     border-left: 2px solid #6C6C6C;
-    
 }
 #confirm{
     border-bottom: 1px solid rgb(143, 143, 143);
-    height: 190px;
+    height: 25%;
     color: #6C6C6C;
 }
 #name{
@@ -110,7 +76,7 @@ label{
     font-size: 13px;
     text-align: center;
     background: #636f8f;
-    padding: 5% 5%;
+    padding: 10px 10px;
     width:110px;
     float: right;
     margin-right: 3%;
@@ -131,3 +97,228 @@ label{
     border: none;
     margin-bottom: 7%;
 }
+
+
+
+/* プルダウンメニュー */
+.menu-trigger p { /* 名前　さん */
+    color: white;
+    width: 100px;
+}
+.my-image {/* 画像 */
+    float: right;
+    margin-top: 33px;
+}
+.round{
+    border-radius: 50%;
+    width: 40px;
+    /* ※縦横を同値に */
+    height: 40px;
+}
+.menu-trigger {/* クリックするところ */
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .menu-trigger span {/* 線を表す */
+    display: block;
+    position: absolute;
+    width: 15px;
+    border-bottom: solid 3px #fff; /* 横線を表す */
+    border-radius: 3px;
+    transition: .35s ease-in-out; /*変化の速度を指定*/
+  }
+
+
+.menu-trigger span:nth-child(2) {/* １本目表す */
+    top: 5px;
+    left: 100px;
+    transform: rotate(45deg);
+  }
+.menu-trigger span:nth-child(3) {/* ２本目表す */
+    top: 5px;
+    left: 110px;
+    transform: rotate(-45deg);
+  }
+  /* 斜めと位置調整 */
+.menu-trigger.active span:nth-child(2) {
+    top: 5px;
+    left: 100px;
+    transform: rotate(-45deg);
+}
+ 
+/* 2番目を斜めと位置調整 */
+.menu-trigger.active span:nth-child(3) {
+    top: 5px;
+    left: 110px;
+    transform: rotate(45deg);
+}
+.g-navi {
+    display: none;
+  }
+
+.g-navi.active{
+    display: flex;
+    position: fixed;
+    height: fit-content;
+    width: 30%;
+    transform: translateY(11%);
+    transition: .5s ease-in-out;
+  }
+
+  .g-navi ul{
+    display: block;
+  }
+  .nav-item{
+    padding: 20px;
+    text-align: center;
+    border: solid 1px #6C6C6C;
+    background: white;
+  }
+  .nav-item:hover{
+    padding: 20px;
+    text-align: center;
+    border: solid 1px #6C6C6C;
+    background: rgb(255, 118, 118);
+    color: white;
+  }
+
+
+
+
+
+/* つぶやきコンテンツ */
+.post-control{
+    width: 80%;
+    height: 90px;
+}
+.post-group{
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #6C6C6C;;
+}
+.main-image {
+    display: block;
+    border-radius: 50%;
+    width: 70px;
+    /* ※縦横を同値に */
+    height: 70px;
+    margin-left: 2%;
+    margin-right: -3%;
+}
+.post-control{
+    border: none;
+    margin-left: 5%;
+    width: 80%;
+}
+.post-btn{
+    border: none;
+    margin-top: 4%;
+    margin-right: 15%;
+    margin-left: 1%;
+}
+
+/* index部分 */
+tr{
+    border-top: 1px solid #767676;
+    border-bottom: 1px solid #767676;
+}
+.table{
+    width: 100%;
+    height: fit-content;
+    padding: 5%;
+}
+.user-name{
+    color: #767676;
+    font-size: 15px;
+    width: fit-content;
+    display: flex;
+    float: left;
+    margin-top: -24%;
+}
+.user-post{
+    color: #767676;
+    font-size: 30px;
+    display: block;
+    width: 360x;
+    height: 50px;
+}
+.post-time{
+    color: #767676;
+    font-size: 15px;
+    width: fit-content;
+    float: right;
+    margin-top: 5%;
+    margin-right: 10px;
+}
+.post-image{
+    display: block;
+    border-radius: 50%;
+    width: 70px;
+    /* ※縦横を同値に */
+    height: 70px;
+    margin-top: 10%;
+    margin-left: 10%;
+}
+.trush{
+    margin-top: 30px;
+    float: right;
+}
+
+
+/* モーダル部分 */
+.modal-main{
+    display: none;
+}  
+  .modal-inner {
+    /* overflow-y: scroll; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 30%;
+    background-color: #ffffff;
+    color: #666666;
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    z-index: 2;
+    border-radius: 3%;
+  }
+  
+  .inner-content{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    max-width: 1024px;
+  }
+  
+  .modal-inner img{
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  
+  .inner-title{
+    margin-top: 40px;
+    margin-bottom: 32px;
+    font-size: 2.8rem;
+    font-weight: bold;
+  }
+  
+  .inner-text{
+    font-size: 1.6rem;
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  
+  .modalClose{
+    cursor: pointer;
+  }
+  

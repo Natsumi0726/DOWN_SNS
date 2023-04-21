@@ -22,27 +22,32 @@
 <body>
     <header>
         <div id = "head">
-         <h1><a href="/top"><img src="/images/main_logo.png"></a></h1>
-            <div id="header-menu">
+            <h1><a href="/top"><img src="/images/main_logo.png"></a></h1>
+            <div class="header-menu">
                 <div class="menu-wrap">
-                    <label for="toggle" onclick=""  for="menuToggle">{{ Auth::user()->username }} さん</label>
-                    <input type="checkbox" id="toggle" autocomplete="off">
-                    <ul id="menu">
-                        <li class="wrap-list"><a href="/top">HOME</a></li>
-                        <li class="wrap-list"><a href="/profile">プロフィール編集</a></li>
-                        <li class="wrap-list"><a href="/logout">ログアウト</a></li>
-                    </ul>
+                    <div class="menu-trigger">
+                        <p>{{ Auth::user()->username }} さん</p>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
-                <img class="my-image" src="/storage/images/{{ Auth::user()->images }}">
+                <div class="g-navi">
+                    <div class="container nav-wrapper">
+                        <ul>
+                            <li class="nav-item"><a href="/top">HOME</a></li>
+                            <li class="nav-item"><a href="/profile">プロフィール編集</a></li>
+                            <li class="nav-item"><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="my-image"><img class="round" src="/storage/images/{{ Auth::user()->images }}"></div>
         </div>
     </header>
 
 
     <div id="row">
-        <div id="container">
-            @yield('content')
-        </div >
+        @yield('content')
         <div id="side-bar">
             <div id="confirm">
                 <p id="name">{{ Auth::user()->username }}さんの</p>
@@ -64,5 +69,6 @@
     </footer>
     <script src="/webpack.mix.js"></script>
     <script src="/webpack.mix.js"></script>
+  <script src="/js/app.js"></script>
 </body>
 </html>
