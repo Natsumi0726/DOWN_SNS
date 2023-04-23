@@ -39,12 +39,12 @@ header {
 }
 
 .my-image {/* 画像 */
-    margin-top: 33px;
+    margin-top: 25px;
     margin-right: 40px;
     border-radius: 50%;
-    width: 40px;
+    width: 50px;
     /* ※縦横を同値に */
-    height: 40px;
+    height: 50px;
 }
 .round{
     border-radius: 50%;
@@ -98,7 +98,8 @@ header {
 
 .g-navi.active{
     display: flex;
-    position: fixed;
+    position: absolute;
+    right: 0%;
     height: fit-content;
     width: 30%;
     transform: translateY(79%);
@@ -130,7 +131,6 @@ header {
 #row {
     display: flex;
     justify-content: space-between;
-
 }
 
 #side-bar {
@@ -154,6 +154,9 @@ header {
     justify-content: space-between;
     width: 75%;
 
+}
+.follows{
+    width: 100%;
 }
 #count{
     margin-left: 20%;
@@ -186,14 +189,19 @@ header {
 }
 
 
+/* メインコンテンツ */
+.container{
+    width: 100%;
+}
 
 
 
 
 /* つぶやきコンテンツ */
 .post-control{
-    width: 80%;
+    width: 100%;
     height: 90px;
+    resize: none;
 }
 .post-group{
     width: 100%;
@@ -222,51 +230,61 @@ header {
     margin-left: 1%;
 }
 
+
+
+
 /* index部分 */
 tr{
     border-top: 1px solid #767676;
     border-bottom: 1px solid #767676;
+    word-break: break-word;
+    height: auto;
 }
 .table{
     width: 100%;
-    height: fit-content;
-    padding: 5%;
+    height: auto;
 }
+
+
 .user-name{
     color: #767676;
     font-size: 15px;
     width: fit-content;
-    display: flex;
-    float: left;
-    margin-top: -24%;
+    display: block;
+    position: relative;
+    vertical-align: top;
+    margin-top: -5%;
 }
 .user-post{
     color: #767676;
-    font-size: 30px;
+    font-size: 20px;
     display: block;
-    width: 360x;
-    height: 50px;
+    width: 390px;
+    height: auto;
 }
 .post-time{
     color: #767676;
     font-size: 15px;
-    width: fit-content;
-    float: right;
-    margin-top: 5%;
-    margin-right: 10px;
+    position: relative;
+    margin-top: -7%;
+    vertical-align: top;
 }
 .post-image{
-    display: block;
     border-radius: 50%;
     width: 70px;
     /* ※縦横を同値に */
     height: 70px;
-    margin-top: 10%;
-    margin-left: 10%;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 .trush{
-    margin-top: 30px;
-    float: right;
+    vertical-align: baseline;
+    width: 60px;
+    display: block;
+}
+.update{
+    vertical-align: baseline;
+    width: 38px;
 }
 
 
