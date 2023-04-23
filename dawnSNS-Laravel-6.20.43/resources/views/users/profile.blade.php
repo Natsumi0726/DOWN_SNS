@@ -2,34 +2,34 @@
 
 @section('content')
 
-<img src="/storage/images/{{$user->images}}">
+<img  class="my-image" src="/storage/images/{{$user->images}}">
 <form action="profile-update" method="post" enctype="multipart/form-data">
 @csrf
-        <div>
-            <label for="name">UserName</label>
+        <div class="profile">
+            <label class="profile-label" for="name">UserName</label>
             <input type="text" id="userName" name="userName" value="{{$user->username}}">
         </div>
-        <div>
-            <label for="email">MailAdress</label>
+        <div class="profile">
+            <label class="profile-label" for="email">MailAdress</label>
             <input type="mail" id="mailAdress" name="mailAdress" value="{{$user->mail}}">
         </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="mail" id="password" name="password" value="{{$user->password}}">
+        <div class="profile">
+            <label class="profile-label" for="password">Password</label>
+            <input type="password" id="password" name="password" value="{{$user->password}}">
         </div>
-        <div>
-            <label for="New-Password">New Password</label>
-            <input type="text" id="newPassword" name="newPassword" placeholder="新しいパスワード">
+        <div class="profile">
+            <label class="profile-label" for="New-Password">New Password</label>
+            <input type="password" id="newPassword" name="newPassword" placeholder="新しいパスワード">
         </div>
-        <div>
-            <label for="Bio">Bio</label>
+        <div class="profile">
+            <label class="profile-label" for="Bio">Bio</label>
             <input type="textarea" id="bio" name="bio" value="{{$user->bio}}">
         </div>
-        <div>
-            <label for="Icon-Image">Icon Image</label>
+        <div class="profile">
+            <label class="profile-label" for="Icon-Image">Icon Image</label>
             <input type="file" id="iconImage" name="iconImage">
         </div>
-        <input type="submit" value="更新">
+        <input class="update-btn" type="submit" value="更新">
     </form>
 
 

@@ -160,7 +160,7 @@ class UsersController extends Controller
         $followerCount = DB::table('follows')
             ->where('follow',Auth::id())
             ->count();
-        return view('users.otherUsers',['posts'=>$posts, 'followCount'=>$followCount,'followerCount'=>$followerCount,'users'=>$users,'followers'=>$followers]);
+        return view('users.otherUsers',['posts'=>$posts, 'followCount'=>$followCount,'followerCount'=>$followerCount,'users'=>$users,'followers'=>$followers,'bio'=>$bio]);
 }
 
 }

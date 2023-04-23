@@ -16,14 +16,14 @@
 <div class="form-group">
             {!! Form::hidden('follow', $users->id) !!}
 </div>
-        <button type="submit" class="btn btn-success pull-right">フォローする</button>
+        <button type="submit" class="btn-follow btn-success pull-right">フォローする</button>
         {!! Form::close() !!}
 @else
     {!! Form::open(['url' => '/unfollow']) !!}
 <div class="form-group">
             {!! Form::hidden('unfollow', $users->id) !!}
  </div>
-<button type="submit" class="btn" >フォロー外す</button>
+<button type="submit" class="btn-follower" >フォロー外す</button>
 {!! Form::close() !!}
 @endif
 

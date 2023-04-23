@@ -15,21 +15,112 @@ header {
     display: flex;
     width: 100%;
     height: 100px;
+    justify-content: space-between;
 }
 
-h1 {
-    margin-right:auto;
+.title{
+    width:200px
 }
 
 .header-menu {
-    width: 26%;
+    width: 250px;
+    display: flex;
+    align-items: center;
 }
 .menu-wrap{
     width: 100%;
     margin-top: 20%;
-    margin-left: 30%;
 }
 
+/* プルダウンメニュー */
+.menu-trigger p { /* 名前　さん */
+    color: white;
+    width: 200px;
+}
+
+.my-image {/* 画像 */
+    margin-top: 33px;
+    margin-right: 40px;
+    border-radius: 50%;
+    width: 40px;
+    /* ※縦横を同値に */
+    height: 40px;
+}
+.round{
+    border-radius: 50%;
+    width: 40px;
+    /* ※縦横を同値に */
+    height: 40px;
+}
+.menu-trigger {/* クリックするところ */
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .menu-trigger span {/* 線を表す */
+    display: block;
+    position: absolute;
+    width: 15px;
+    border-bottom: solid 3px #fff; /* 横線を表す */
+    border-radius: 3px;
+    transition: .35s ease-in-out; /*変化の速度を指定*/
+  }
+
+
+.menu-trigger span:nth-child(2) {/* １本目表す */
+    top: 5px;
+    left: 119px;
+    transform: rotate(45deg);
+  }
+.menu-trigger span:nth-child(3) {/* ２本目表す */
+    top: 5px;
+    left: 129px;
+    transform: rotate(-45deg);
+  }
+  /* 斜めと位置調整 */
+.menu-trigger.active span:nth-child(2) {
+    top: 5px;
+    left: 119px;
+    transform: rotate(-45deg);
+}
+ 
+/* 2番目を斜めと位置調整 */
+.menu-trigger.active span:nth-child(3) {
+    top: 5px;
+    left: 129px;
+    transform: rotate(45deg);
+}
+.g-navi {
+    display: none;
+  }
+
+.g-navi.active{
+    display: flex;
+    position: fixed;
+    height: fit-content;
+    width: 30%;
+    transform: translateY(79%);
+    transition: .5s ease-in-out;
+  }
+
+  .g-navi ul{
+    display: block;
+  }
+  .nav-item{
+    padding: 20px;
+    text-align: center;
+    border: solid 1px #6C6C6C;
+    background: white;
+  }
+  .nav-item:hover{
+    padding: 20px;
+    text-align: center;
+    border: solid 1px #6C6C6C;
+    background: rgb(255, 118, 118);
+    color: white;
+  }
 
 
 
@@ -38,12 +129,8 @@ h1 {
 /* 右側のコンテンツ */
 #row {
     display: flex;
-    flex-flow: row wrap;
     justify-content: space-between;
 
-}
-.container{
-    flex: 1 0 69%;
 }
 
 #side-bar {
@@ -52,7 +139,7 @@ h1 {
 }
 #confirm{
     border-bottom: 1px solid rgb(143, 143, 143);
-    height: 25%;
+    height: 225px;
     color: #6C6C6C;
 }
 #name{
@@ -100,92 +187,6 @@ h1 {
 
 
 
-/* プルダウンメニュー */
-.menu-trigger p { /* 名前　さん */
-    color: white;
-    width: 100px;
-}
-.my-image {/* 画像 */
-    float: right;
-    margin-top: 33px;
-}
-.round{
-    border-radius: 50%;
-    width: 40px;
-    /* ※縦横を同値に */
-    height: 40px;
-}
-.menu-trigger {/* クリックするところ */
-    position: relative;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  }
-
-  .menu-trigger span {/* 線を表す */
-    display: block;
-    position: absolute;
-    width: 15px;
-    border-bottom: solid 3px #fff; /* 横線を表す */
-    border-radius: 3px;
-    transition: .35s ease-in-out; /*変化の速度を指定*/
-  }
-
-
-.menu-trigger span:nth-child(2) {/* １本目表す */
-    top: 5px;
-    left: 100px;
-    transform: rotate(45deg);
-  }
-.menu-trigger span:nth-child(3) {/* ２本目表す */
-    top: 5px;
-    left: 110px;
-    transform: rotate(-45deg);
-  }
-  /* 斜めと位置調整 */
-.menu-trigger.active span:nth-child(2) {
-    top: 5px;
-    left: 100px;
-    transform: rotate(-45deg);
-}
- 
-/* 2番目を斜めと位置調整 */
-.menu-trigger.active span:nth-child(3) {
-    top: 5px;
-    left: 110px;
-    transform: rotate(45deg);
-}
-.g-navi {
-    display: none;
-  }
-
-.g-navi.active{
-    display: flex;
-    position: fixed;
-    height: fit-content;
-    width: 30%;
-    transform: translateY(11%);
-    transition: .5s ease-in-out;
-  }
-
-  .g-navi ul{
-    display: block;
-  }
-  .nav-item{
-    padding: 20px;
-    text-align: center;
-    border: solid 1px #6C6C6C;
-    background: white;
-  }
-  .nav-item:hover{
-    padding: 20px;
-    text-align: center;
-    border: solid 1px #6C6C6C;
-    background: rgb(255, 118, 118);
-    color: white;
-  }
-
-
 
 
 
@@ -208,7 +209,6 @@ h1 {
     /* ※縦横を同値に */
     height: 70px;
     margin-left: 2%;
-    margin-right: -3%;
 }
 .post-control{
     border: none;
@@ -321,4 +321,72 @@ tr{
   .modalClose{
     cursor: pointer;
   }
-  
+
+
+  /* フォローリスト */
+.follow{
+    color: rgb(106, 106, 106);
+    font-size: 30px;
+    margin: 3% 2%;
+}
+
+
+
+/* ユーザー検索 */
+
+.search-box{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.search-list{
+    display: flex;
+    flex-direction: column;
+}
+.user-inform{
+    display: flex;
+    align-items: center;
+}
+
+
+.btn-follow{
+    background: #96b3f4;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    border: none;
+}
+
+.btn-follower{
+    background: #f09090;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    border: none;
+}
+
+.username{
+    font-size: 20px;
+    color: #767676;
+    margin: 10px 10px 10px 10px;
+}
+
+
+/* プロフィール */
+
+.profile{
+    margin: 10% 5%;
+}
+
+.profile-label{
+    margin-right: 50px;
+}
+
+.update-btn{
+    background: #7ab07a;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    padding: 7px 45px;
+    border-radius: 10px;
+}

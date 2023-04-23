@@ -22,7 +22,7 @@
 <body>
     <header>
         <div id = "head">
-            <h1><a href="/top"><img src="/images/main_logo.png"></a></h1>
+            <div class="title"><h1><a href="/top"><img class="dawn-image" src="/images/main_logo.png"></a></h1></div>
             <div class="header-menu">
                 <div class="menu-wrap">
                     <div class="menu-trigger">
@@ -40,30 +40,30 @@
                         </ul>
                     </div>
                 </div>
+                <img class="my-image" src="/storage/images/{{ Auth::user()->images }}">
             </div>
-            <div class="my-image"><img class="round" src="/storage/images/{{ Auth::user()->images }}"></div>
         </div>
     </header>
 
 
     <div id="row">
-        @yield('content')
-        <div id="side-bar">
-            <div id="confirm">
-                <p id="name">{{ Auth::user()->username }}さんの</p>
-                <div id="follow">
-                <p>フォロー数</p>
-                <p id="count">{{ $followCount }}名</p>
+            @yield('content')
+            <div id="side-bar">
+                <div id="confirm">
+                    <p id="name">{{ Auth::user()->username }}さんの</p>
+                    <div id="follow">
+                        <p>フォロー数</p>
+                        <p id="count">{{ $followCount }}名</p>
+                    </div>
+                        <p class="follow-btn"><a href="/followList">フォローリスト</a></p>
+                    <div id="follow">
+                        <p>フォロワー数</p>
+                        <p id="count">{{ $followerCount }}名</p>
+                    </div>
+                    <p class="follow-btn"><a href="followerList">フォロワーリスト</a></p>
                 </div>
-                <p class="follow-btn"><a href="/followList">フォローリスト</a></p>
-                <div id="follow">
-                <p>フォロワー数</p>
-                <p id="count">{{ $followerCount }}名</p>
-                </div>
-                <p class="follow-btn"><a href="followerList">フォロワーリスト</a></p>
+                <p class="user-btn"><a href="/search">ユーザー検索</a></p>
             </div>
-            <p class="user-btn"><a href="/search">ユーザー検索</a></p>
-        </div>
     </div>
     <footer>
     </footer>
