@@ -43,7 +43,7 @@ $(function () {
         return false;
       });
     });
-    $('.modalClose,.modal-main').on('click', function () {
+    $('.modalClose').on('click', function () {
       $('.js-modal').fadeOut();
       return false;
     });

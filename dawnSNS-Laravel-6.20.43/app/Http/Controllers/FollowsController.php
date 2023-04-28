@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Auth;
+use App\Post;
 
 class FollowsController extends Controller
 {
@@ -44,7 +45,14 @@ public function unfollow(Request $request){
             $followerCount = DB::table('follows')
             ->where('follow',Auth::id())
             ->count();
-        return view('follows.followerList',compact('followers','followCount','followerCount'));
+            $posts = DB::table('posts')
+            ->join('users', 'posts.user_id','=', 'users.id')
+            ->leftJoin('follows', 'posts.user_id','=', 'follows.follow')
+            ->where('follower',Auth::id())
+            ->orWhere('user_id',Auth::id())
+            ->select('posts.user_id','posts.posts','posts.id','posts.created_at','users.username','users.images',)
+            ->get()->sortByDesc('created_at');;
+        return view('follows.followerList',compact('followers','followCount','followerCount','posts'));
     }
 
     public function followList(){
@@ -59,7 +67,14 @@ public function unfollow(Request $request){
             $followerCount = DB::table('follows')
             ->where('follow',Auth::id())
             ->count();
-        return view('follows.followList',compact('follows', 'followCount','followerCount'));
+            $posts = DB::table('posts')
+            ->join('users', 'posts.user_id','=', 'users.id')
+            ->leftJoin('follows', 'posts.user_id','=', 'follows.follow')
+            ->where('follower',Auth::id())
+            ->orWhere('user_id',Auth::id())
+            ->select('posts.user_id','posts.posts','posts.id','posts.created_at','users.username','users.images',)
+            ->get()->sortByDesc('created_at');;
+            return view('follows.followList',compact('follows', 'followCount','followerCount','posts'));
     }
 
 }

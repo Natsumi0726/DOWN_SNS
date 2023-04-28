@@ -32,10 +32,14 @@ header {
     margin-top: 20%;
 }
 
+a{
+    color: #fff;
+}
+
 /* プルダウンメニュー */
 .menu-trigger p { /* 名前　さん */
     color: white;
-    width: 200px;
+    width: max-content;
 }
 
 .my-image {/* 画像 */
@@ -114,6 +118,9 @@ header {
     text-align: center;
     border: solid 1px #6C6C6C;
     background: white;
+  }
+  .nav-item a{
+color: #767676;
   }
   .nav-item:hover{
     padding: 20px;
@@ -216,7 +223,7 @@ header {
     width: 70px;
     /* ※縦横を同値に */
     height: 70px;
-    margin-left: 2%;
+    margin-left: 15%;
 }
 .post-control{
     border: none;
@@ -235,8 +242,7 @@ header {
 
 /* index部分 */
 tr{
-    border-top: 1px solid #767676;
-    border-bottom: 1px solid #767676;
+    border: 1.5px solid #767676;
     word-break: break-word;
     height: auto;
 }
@@ -266,7 +272,6 @@ tr{
     color: #767676;
     font-size: 15px;
     position: relative;
-    margin-top: -7%;
     vertical-align: top;
 }
 .post-image{
@@ -348,6 +353,19 @@ tr{
     margin: 3% 2%;
 }
 
+.user-image{
+    border-radius: 50%;
+    width: 70px;
+    /* ※縦横を同値に */
+    height: 70px;
+    margin: 1%;
+}
+.user-box{
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #767676 ;
+    padding-bottom: 5%;
+}
 
 
 /* ユーザー検索 */
@@ -364,29 +382,37 @@ tr{
 .user-inform{
     display: flex;
     align-items: center;
+    margin: 28px 0px 0px 32px;;
 }
 
 
 .btn-follow{
     background: #96b3f4;
     color: #fff;
-    padding: 5px;
+    padding: 15px;
     border-radius: 3px;
     border: none;
+    float: right;
+    margin: -4% 5% 2% 0%;
+    width: 150px;
 }
 
 .btn-follower{
     background: #f09090;
     color: #fff;
-    padding: 5px;
+    padding: 15px;
     border-radius: 3px;
     border: none;
+    float: right;
+    margin: -4% 5% 2% 0%;
+    width: 150px;
 }
 
 .username{
     font-size: 20px;
     color: #767676;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 9px 12px 20px;
+    width: 350px;
 }
 
 
@@ -397,7 +423,8 @@ tr{
 }
 
 .profile-label{
-    margin-right: 50px;
+    display: inline-block;
+    width: 190px;
 }
 
 .update-btn{
@@ -407,4 +434,86 @@ tr{
     border: none;
     padding: 7px 45px;
     border-radius: 10px;
+}
+
+#userName{
+    background: #f1f1f1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 1%;
+}
+
+#mailAdress{
+    background: #f1f1f1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 1%;
+}
+
+#password{
+    background: #f1f1f1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 1%;
+}
+
+#newPassword{
+    background: #f1f1f1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 1%;
+}
+
+#bio{
+    background: #f1f1f1;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+        width:168px;
+        height:70px;
+}
+
+#iconImage{
+    background: #f1f1f1;
+    padding: 11% 2%;
+}
+.browse_btn {
+background-color: #d3d3d3;
+padding: 6px;
+border-radius: 8px;
+font-weight: bold;
+}
+
+#container-profile{
+display: flex;
+margin-left: 10%;
+}
+
+/* 他の人のプロフィール */
+.profile-contents{
+    width: 100%;
+}
+.pofile-index{
+    border: none;
+}
+
+.plofile-name{
+    display: block;
+}
+.plofile-name p{
+    display: inline;
+    margin-left: 10%;
+    white-space:nowrap;
+}
+.plofile-bio{
+    display: block;
+}
+.plofile-bio p{
+    display: inline;
+    padding: 0%;
+    white-space:nowrap;
 }

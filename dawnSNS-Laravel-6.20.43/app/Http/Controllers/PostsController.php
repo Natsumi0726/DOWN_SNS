@@ -19,7 +19,7 @@ class PostsController extends Controller
         ->where('follower',Auth::id())
         ->orWhere('user_id',Auth::id())
         ->select('posts.user_id','posts.posts','posts.id','posts.created_at','users.username','users.images',)
-        ->get();
+        ->get()->sortByDesc('created_at');;
         $followCount = DB::table('follows')
             ->where('follower',Auth::id())
             ->count();

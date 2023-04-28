@@ -74,7 +74,6 @@ class UsersController extends Controller
         if(!$request->newPassword && $request->iconImage){//パスワードなしアイコンあり
         $username = $request->input('userName');
         $mailAdress = $request->input('mailAdress');
-        $newPassword = $request->input('newPassword');
         $bio = $request->input('bio');
         $iconImage = $request->file('iconImage')->getClientOriginalName();
         $request->file('iconImage')->storeAs('images', $iconImage, 'public');
@@ -109,7 +108,6 @@ class UsersController extends Controller
             $mailAdress = $request->input('mailAdress');
             $newPassword = $request->input('newPassword');
             $bio = $request->input('bio');
-            $iconImage = $request->file('iconImage')->getClientOriginalName();
             DB::table('users')
                 ->where('id',Auth::id())
                 ->update(
@@ -122,9 +120,7 @@ class UsersController extends Controller
             }else{//パスワードなしアイコンなし
                 $username = $request->input('userName');
                 $mailAdress = $request->input('mailAdress');
-                $newPassword = $request->input('newPassword');
                 $bio = $request->input('bio');
-                $iconImage = $request->file('iconImage')->getClientOriginalName();
                 DB::table('users')
                     ->where('id',Auth::id())
                     ->update(
@@ -160,7 +156,7 @@ class UsersController extends Controller
         $followerCount = DB::table('follows')
             ->where('follow',Auth::id())
             ->count();
-        return view('users.otherUsers',['posts'=>$posts, 'followCount'=>$followCount,'followerCount'=>$followerCount,'users'=>$users,'followers'=>$followers,'bio'=>$bio]);
+        return view('users.otherUsers',['posts'=>$posts, 'followCount'=>$followCount,'followerCount'=>$followerCount,'users'=>$users,'followers'=>$followers]);
 }
 
 }
