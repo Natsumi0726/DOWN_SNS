@@ -34,7 +34,7 @@ class PostsController extends Controller
     public function create(Request $request)
     {
         $validator = $request->validate([
-            'newPost' => ['required', 'string', 'max:5'
+            'newPost' => ['required', 'string', 'max:150'
         ],[
             'newPost.max' => '150文字以内で投稿してください',
             ]]);

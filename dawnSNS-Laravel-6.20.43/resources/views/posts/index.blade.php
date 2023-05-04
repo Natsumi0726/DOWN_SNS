@@ -5,6 +5,9 @@
     {!! Form::open(['url' => 'posts/create']) !!}
     <div class="post-group">
         <img class="post-image" src="/storage/images/{{ Auth::user()->images }}">
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
             {!! Form::textarea('newPost', null, ['required', 'class' => 'post-control', 'placeholder' => '何をつぶやこうか…？']) !!}
         <button type="submit" class="post-btn btn-success pull-right"><img src="/images/post.png"></button>
         {!! Form::close() !!}
@@ -28,6 +31,9 @@
                 <div class="modal-main js-modal" id="modal{{ $post->id }}">
                     <div class="modal-inner">
                         <div class="inner-content">
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
                             {!! Form::open(['url' => 'posts/update']) !!}
                             {!! Form::hidden('id', $post->id) !!}
                             {!! Form::textarea( 'upPosts', $post->posts, ['required','cols=40','rows=4', 'class' => 'edit-control',]) !!}

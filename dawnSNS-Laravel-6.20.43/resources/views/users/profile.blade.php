@@ -2,10 +2,11 @@
 
 @section('content')
 <div id='container-profile'>
-@foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-@endforeach
+
     <div><img  class="my-image" src="/storage/images/{{$user->images}}"></div>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
     <form class="profile-update" action="profile-update" method="post" enctype="multipart/form-data">
     @csrf
             <div class="profile">
