@@ -2,6 +2,9 @@
 
 @section('content')
 <div id='container-profile'>
+@foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+@endforeach
     <div><img  class="my-image" src="/storage/images/{{$user->images}}"></div>
     <form class="profile-update" action="profile-update" method="post" enctype="multipart/form-data">
     @csrf
@@ -15,7 +18,7 @@
             </div>
             <div class="profile">
                 <label class="profile-label" for="password">Password</label>
-                <input type="password" id="password" name="password" value="{{$user->password}}">
+                <input type="password" disabled id="password" name="password" value="{{$user->password}}">
             </div>
             <div class="profile">
                 <label class="profile-label" for="New-Password">New Password</label>
@@ -23,7 +26,7 @@
             </div>
             <div class="profile">
                 <label class="profile-label" for="Bio">Bio</label>
-                <input type="textarea" cols="40" rows="4" wrap="soft" id="bio" name="bio" value="{{$user->bio}}">
+                <textarea cols="20" rows="4" wrap="hard" id="bio" name="bio">{{$user->bio}}</textarea>
             </div>
             <div class="profile">
                 <label class="profile-label" for="Icon-Image">Icon Image</label>

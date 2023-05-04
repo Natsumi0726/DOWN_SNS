@@ -17,10 +17,41 @@
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
+Route::middleware('auth')->group(function(){
 
+    Route::get('/top','PostsController@index');
+
+    Route::get('/profile','UsersController@profile');
+  
+
+    Route::get('/search','UsersController@search');
+
+    Route::get('/logout', 'Auth\LoginController@logout');
+
+
+
+    //投稿とか
+
+    Route::post('posts/create', 'PostsController@create');
+    Route::post('posts/update', 'PostsController@update');
+    Route::get('posts/{id}/delete', 'PostsController@delete');
+
+
+    //フォローとか
+
+    Route::get('/followList', 'FollowsController@followList');
+    Route::get('/followerList', 'FollowsController@followerList');
+    Route::post('/Follows/follow', 'FollowsController@follow');
+    Route::post('/unfollow', 'FollowsController@unfollow');
+
+    Route::get('users/{otherUsers}/otherUsers', 'UsersController@otherUsers');
+
+
+});
+  Route::post('/profile-update','UsersController@update');
 
 //ログアウト中のページ
-Route::get('/login', 'Auth\LoginController@login');
+Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/register', 'Auth\RegisterController@register');
@@ -30,30 +61,4 @@ Route::get('/added', 'Auth\RegisterController@added');
 
 
 //ログイン中のページ
-Route::get('/top','PostsController@index');
-
-Route::get('/profile','UsersController@profile');
-Route::post('/profile-update','UsersController@update');
-
-Route::get('/search','UsersController@search');
-
-Route::get('/logout', 'Auth\LoginController@logout');
-
-
-
-//投稿とか
-
-Route::post('posts/create', 'PostsController@create');
-Route::post('posts/update', 'PostsController@update');
-Route::get('posts/{id}/delete', 'PostsController@delete');
-
-
-//フォローとか
-
-Route::get('/followList', 'FollowsController@followList');
-Route::get('/followerList', 'FollowsController@followerList');
-Route::post('/Follows/follow', 'FollowsController@follow');
-Route::post('/unfollow', 'FollowsController@unfollow');
-
-Route::get('users/{otherUsers}/otherUsers', 'UsersController@otherUsers');
 

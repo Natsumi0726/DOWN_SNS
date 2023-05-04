@@ -5,9 +5,9 @@
 
 <div class="container">
     <div class="search-box">
-        <form action="/search">
-            <input type="text" placeholder="ユーザー名を入力" name="search" value="@if (isset($search)) {{ $search }} @endif">
-                <button type="submit"><img src="/images/seach.png"></button>
+        <form action="/search" id="search-form">
+            <input type="text" id="search-input" placeholder="ユーザー名を入力" name="search" value="@if (isset($search)) {{ $search }} @endif">
+                <button type="submit" ><img src="/images/seach.png"></button>
         </form>
         @if($search)
         <p>検索ワード：{{ $search }}</p>

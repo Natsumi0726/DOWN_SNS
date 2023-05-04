@@ -9,6 +9,8 @@ use App\Post;
 
 class FollowsController extends Controller
 {
+   
+
     public function follow(Request $request){
      $follow = $request->input('follow');
      DB::table('follows')->insert([
@@ -76,5 +78,8 @@ public function unfollow(Request $request){
             ->get()->sortByDesc('created_at');;
             return view('follows.followList',compact('follows', 'followCount','followerCount','posts'));
     }
-
+ public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }

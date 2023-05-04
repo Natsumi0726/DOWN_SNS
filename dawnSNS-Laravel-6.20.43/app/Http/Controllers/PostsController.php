@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,7 @@ use App\Post;
 
 class PostsController extends Controller
 {
-    //
+  
 
     public function index(){
         $posts = DB::table('posts')
@@ -33,8 +34,11 @@ class PostsController extends Controller
     public function create(Request $request)
     {
         $validator = $request->validate([
-            'newPost' => ['required', 'string', 'max:280'],
-        ]);
+            'newPost' => ['required', 'string', 'max:5'
+        ],[
+            'newPost.max' => '150文字以内で投稿してください',
+            ]]);
+
         Post::create([
             'user_id' => Auth::user()->id,
             'posts' => $request->newPost,
@@ -44,6 +48,13 @@ class PostsController extends Controller
 
     public function update(Request $request)
     {
+        $validator = $request->validate([
+            'upPosts' => ['required', 'string', 'max:150'
+        ],[
+            'upPosts.max' => '150文字以内で編集してください',
+            ]]);
+
+
         $id = $request->input('id');
         $up_posts = $request->input('upPosts');
         DB::table('posts')
@@ -63,7 +74,10 @@ class PostsController extends Controller
  
         return redirect('/top');
     }
-
+  public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }
 
 
