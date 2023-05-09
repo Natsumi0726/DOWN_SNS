@@ -52,6 +52,8 @@ class UsersController extends Controller
         ]);
     }
 
+    
+
     public function profile(Request $request)
     {
         $user = DB::table('users')
@@ -75,17 +77,8 @@ class UsersController extends Controller
     {
         $validator = $request->validate([
         'userName' => ['required', 'string', 'min:4', 'max:12'
-    ],[
-            'userName.required' => 'ユーザ名は必須項目です',
-            'userName.min' => 'ユーザ名は4文字以上で入力してください',
-            'userName.max' => 'ユーザ名は12文字以内で入力してください',
-        ],
+    ],
         'mailAdress' => ['required', 'string', 'email', 'min:4', 'max:12', Rule::unique('users', 'mail')->ignore(Auth::id())
-    ],[
-        'mailAdress.required' => 'メールアドレスは必須項目です',
-        'mailAdress.min' => 'メールアドレスは4文字以上で入力してください',
-        'mailAdress.max' => 'メールアドレスは12文字以内で入力してください',
-        'mailAdress.email' => 'メールアドレスではありません',
     ]]);
 
         if(!$request->newPassword && $request->iconImage){//パスワードなしアイコンあり
@@ -107,11 +100,7 @@ class UsersController extends Controller
         }else if ($request->newPassword && $request->iconImage){//パスワードありアイコンあり
             $validator = $request->validate([
                 'newPassword' => [ 'string',  'min:4', 'max:12', 'alpha_num'
-    ],[
-        'newPassword.min' => 'パスワードは4文字以上で入力してください',
-        'newPassword.max' => 'パスワードは12文字以内で入力してください',
-        'newPassword.alpha_num' => 'パスワードは英数字で入力してください',
-        ]]);
+    ]]);
             $username = $request->input('userName');
             $mailAdress = $request->input('mailAdress');
             $newPassword = $request->input('newPassword');
@@ -131,11 +120,7 @@ class UsersController extends Controller
         }else if($request->newPassword && !$request->iconImage){//パスワードありアイコンなし
             $validator = $request->validate([
                 'newPassword' => [ 'string',  'min:4', 'max:12', 'alpha_num'
-    ],[
-        'newPassword.min' => 'パスワードは4文字以上で入力してください',
-        'newPassword.max' => 'パスワードは12文字以内で入力してください',
-        'newPassword.alpha_num' => 'パスワードは英数字で入力してください',
-        ]]);
+    ]]);
             $username = $request->input('userName');
             $mailAdress = $request->input('mailAdress');
             $newPassword = $request->input('newPassword');

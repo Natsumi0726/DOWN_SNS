@@ -35,9 +35,7 @@ class PostsController extends Controller
     {
         $validator = $request->validate([
             'newPost' => ['required', 'string', 'max:150'
-        ],[
-            'newPost.max' => '150文字以内で投稿してください',
-            ]]);
+        ]]);
 
         Post::create([
             'user_id' => Auth::user()->id,
@@ -50,9 +48,7 @@ class PostsController extends Controller
     {
         $validator = $request->validate([
             'upPosts' => ['required', 'string', 'max:150'
-        ],[
-            'upPosts.max' => '150文字以内で編集してください',
-            ]]);
+        ]]);
 
 
         $id = $request->input('id');
